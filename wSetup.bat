@@ -4,25 +4,26 @@ if "%~s0"=="%~s1" ( cd %~sp1 & shift ) else (
 :eof
 mkdir %temp%\wSetup\
 @echo off
+title Configuring...
 mode con: cols=90 lines=6
 color f0
 
-start %Temp%\theme.deskthemepack
-powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/droid003best/wSetup/main/theme.deskthemepack', '%Temp%\wSetup\Installation\theme.deskthemepack') }"
 
+powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/droid003best/wSetup/main/theme.deskthemepack', '%Temp%\wSetup\theme.deskthemepack') }"
+start %Temp%\theme.deskthemepack
 
 cls
-echo Wird heruntergeladen; choco.bat
-powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/droid003best/wSetup/main/choco.bat', '%Temp%\wSetup\Installation\choco.bat') }"
-Wird gestartet; choco.bat
-start %Temp%\wSetup\Installation\choco.bat > %Temp%\wSetup\Log\choco.txt
+title Wird heruntergeladen; choco.bat
+powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/droid003best/wSetup/main/choco.bat', '%Temp%\wSetup\choco.bat') }"
+title Wird gestartet; choco.bat
+start %Temp%\wSetup\choco.bat
 
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "LaunchTo" /t REG_DWORD /d 1 /f
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "SearchboxTaskbarMode" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t  REG_DWORD /d 0 /f
 
-powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/droid003best/WindowsInstallation/main/TaskBar/Taskbar.reg', '%temp%\taskbar.reg') }"
-%windir%\system32\reg.exe import %temp%\taskbar.reg
+powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/droid003best/WindowsInstallation/main/TaskBar/Taskbar.reg', '%temp%\wSetup\taskbar.reg') }"
+%windir%\system32\reg.exe import %temp%\wSetup\taskbar.reg
 
 echo Set oWS = WScript.CreateObject("WScript.Shell") > CreateShortcut.vbs
 echo sLinkFile = "C:\Users\janis\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Google Chrome.lnk" >> CreateShortcut.vbs
