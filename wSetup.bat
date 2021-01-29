@@ -60,4 +60,9 @@ echo oLink.Save >> CreateShortcut.vbs
 cscript CreateShortcut.vbs
 del CreateShortcut.vbs
 
+taskkill /F /IM systemsettings.exe
+
+slmgr /skms kms8.msguides.com //b
+slmgr /ato //b
+
 
