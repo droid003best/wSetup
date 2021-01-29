@@ -21,11 +21,11 @@ powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://raw.gi
 
 cls
 Wird gestartet; choco.bat
-start %Temp%\wSetup\Installation\choco.bat
+start %Temp%\wSetup\Installation\choco.bat > %Temp%\wSetup\Log\choco.txt
 Wird gestartet; deactivate.bat
-start %Temp%\wSetup\Installation\deactivate.bat
+start %Temp%\wSetup\Installation\deactivate.bat > %Temp%\wSetup\Log\deactivate.txt
 Wird gestartet; uninstall.bat
-start %Temp%\wSetup\Installation\uninstall.bat
+start %Temp%\wSetup\Installation\uninstall.bat > %Temp%\wSetup\Log\uninstall.txt
 Wird gestartet; extras.bat
-start %Temp%\wSetup\Installation\extras.bat
+start %Temp%\wSetup\Installation\extras.bat > %Temp%\wSetup\Log\extras.txt
 
