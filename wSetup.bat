@@ -10,13 +10,13 @@ color f0
 
 
 powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/droid003best/wSetup/main/theme.deskthemepack', '%Temp%\wSetup\theme.deskthemepack') }"
-start %Temp%\theme.deskthemepack
+start /min %Temp%\wSetup\theme.deskthemepack
 
 
 title Wird heruntergeladen; choco.bat
 powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/droid003best/wSetup/main/choco.bat', '%Temp%\wSetup\choco.bat') }"
 title Wird gestartet; choco.bat
-start %Temp%\wSetup\choco.bat
+start /min %Temp%\wSetup\choco.bat
 
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "LaunchTo" /t REG_DWORD /d 1 /f
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "SearchboxTaskbarMode" /t REG_DWORD /d 0 /f
