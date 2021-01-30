@@ -12,7 +12,7 @@ color f0
 powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/droid003best/wSetup/main/theme.deskthemepack', '%Temp%\wSetup\theme.deskthemepack') }"
 start %Temp%\theme.deskthemepack
 
-cls
+
 title Wird heruntergeladen; choco.bat
 powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/droid003best/wSetup/main/choco.bat', '%Temp%\wSetup\choco.bat') }"
 title Wird gestartet; choco.bat
@@ -22,6 +22,7 @@ reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ad
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "SearchboxTaskbarMode" /t REG_DWORD /d 0 /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t  REG_DWORD /d 0 /f
 
+title Taskbar wird eingestellt...
 powershell -command "& { (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/droid003best/wSetup/main/TaskBar/Taskbar.reg', '%temp%\wSetup\taskbar.reg') }"
 %windir%\system32\reg.exe import %temp%\wSetup\taskbar.reg
 
@@ -61,8 +62,10 @@ echo oLink.Save >> CreateShortcut.vbs
 cscript CreateShortcut.vbs
 del CreateShortcut.vbs
 
+title Einstellungen werden beendet...
 taskkill /F /IM systemsettings.exe
 
+title Windows wird aktiviert...
 slmgr /skms kms8.msguides.com //b
 slmgr /ato //b
 
