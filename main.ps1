@@ -21,6 +21,7 @@ Function DisableWebSearch {
 Function DisableMapUpdates {
 	Write-Output "Disabling automatic Maps updates..."
 	Set-ItemProperty -Path "HKLM:\SYSTEM\Maps" -Name "AutoUpdateEnabled" -Type DWord -Value 0
+}
   
 # Disable Feedback
 Function DisableFeedback {
