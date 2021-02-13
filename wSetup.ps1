@@ -1,7 +1,7 @@
-set-executionpolicy remotesigned
+set-executionpolicy remotesigned -force
 
 #Chocolatey
-	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/droid003best/wSetup/main/wSetup.ps1" -OutFile c:\choco.ps1
+	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/droid003best/wSetup/main/choco.ps1" -OutFile c:\choco.ps1
 	start powershell {c:\choco.ps1}
 	
 
