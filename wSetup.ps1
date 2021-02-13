@@ -3,6 +3,11 @@
 		Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" $PSCommandArgs" -WorkingDirectory $pwd -Verb RunAs
 		Exit
 	}
+	
+#Chocolatey
+	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/droid003best/wSetup/main/wSetup.ps1" -OutFile c:\choco.ps1
+	start powershell {c:\choco.ps1}
+	
 
 # Disable Web Search in Start Menu
 	Write-Output "Disabling Bing Search in Start Menu..."
