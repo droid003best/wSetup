@@ -1,9 +1,3 @@
-# Relaunch the script with administrator privileges
-	If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
-		Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" $PSCommandArgs" -WorkingDirectory $pwd -Verb RunAs
-		Exit
-	}
-	
 #Chocolatey
 	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/droid003best/wSetup/main/wSetup.ps1" -OutFile c:\choco.ps1
 	start powershell {c:\choco.ps1}
