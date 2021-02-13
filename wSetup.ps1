@@ -1,4 +1,5 @@
-set-executionpolicy remotesigned -force
+#Signed
+	set-executionpolicy remotesigned -force
 
 #Chocolatey
 	Invoke-WebRequest -Uri "https://raw.githubusercontent.com/droid003best/wSetup/main/choco.ps1" -OutFile c:\choco.ps1
